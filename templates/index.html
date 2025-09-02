@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deteksi Suhu Tubuh</title>
+    <script>
+        setInterval(function() {
+            location.reload();
+        }, 100);
+
+        function roundTemperature(temperature) {
+            return temperature.toFixed(2);
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;s
+        }
+
+        header {
+            background-color: #007BFF;
+            color: #fff;
+            text-align: center;
+            padding: 1px;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h1 {
+            margin-top: 4;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Deteksi Suhu Tubuh</h1>
+    </header>
+    <main>
+        <p><center>Suhu Tubuh : <span id="temperature" style="font-weight: bold; color: #007BFF;">{{ temperature }}</span> °C
+        </center></p>
+        <p style="font-style: italic;"><center>{{ message }}</center></p>
+        <br>
+        <p>INFORMASI :</p>
+        <p style="font-style: italic;">{{ penjelasan }}</p>
+    </main>
+    <script>
+        var temperatureElement = document.getElementById("temperature");
+        temperatureElement.textContent = roundTemperature({{ temperature }});
+    </script>
+</body>
+</html>
